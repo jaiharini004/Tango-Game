@@ -1,0 +1,238 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+
+  /* Custom utility for cell shadows if needed, matching the clean look */
+  .cell-shadow {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+}
+
+
+body {
+  margin: 0;
+  font-family: 'Inter', Arial, sans-serif;
+  background-color: var(--color-bg);
+  color: #4a4a4a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Header */
+.game-header h1 {
+  color: #333;
+  letter-spacing: 1px;
+}
+
+.timer {
+  background: #fff;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* --- The Grid --- */
+.game-board {
+  padding: 0;
+  background-color: var(--color-bg);
+  /* Outer thick border if desired, or just match grid lines */
+  border: 2px solid #888;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  overflow: visible;
+  /* Allow markers to stick out if needed */
+}
+
+/* Collapsed Border Model */
+.grid-container {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--color-grid-line);
+  border-left: 1px solid var(--color-grid-line);
+  /* Ensure backgrounds don't leak */
+  background: var(--color-bg);
+}
+
+.grid-row {
+  display: flex;
+}
+
+.cell-wrapper {
+  position: relative;
+  /* Anchor for absolute markers */
+}
+
+.cell {
+  width: var(--cell-size);
+  height: var(--cell-size);
+  background-color: var(--color-bg);
+  ;
+  border-right: 1px solid var(--color-grid-line);
+  border-bottom: 1px solid var(--color-grid-line);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.1s;
+}
+
+.cell:hover {
+  background-color: #faf8f5;
+}
+
+/* Locked Cells */
+.cell-locked {
+  background-color: var(--color-locked);
+  cursor: default;
+}
+
+.cell-locked:hover {
+  background-color: var(--color-locked);
+}
+
+/* Hint */
+.cell-hint {
+  box-shadow: inset 0 0 0 4px rgba(247, 160, 40, 0.4);
+  animation: none;
+}
+
+.cell-error {
+  background-color: rgba(255, 0, 0, 0.05);
+  box-shadow: inset 0 0 0 2px #ff6666;
+}
+
+/* Icons */
+.sun-icon {
+  width: 60%;
+  height: 60%;
+  background-color: var(--color-sun);
+  border-radius: 50%;
+  box-shadow: none;
+  /* Flat Solid */
+}
+
+.moon-icon {
+  width: 50%;
+  height: 50%;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: -8px 3px 0 0 var(--color-moon);
+  /* Crescent */
+  transform: rotate(-45deg);
+  margin-left: 10%;
+  /* Visual centering compensation for crescent */
+}
+
+/* --- Markers (= and x) --- */
+.constraint-marker {
+  position: absolute;
+  font-weight: bold;
+  font-family: sans-serif;
+  pointer-events: none;
+  /* Let clicks pass through to cells if needed, though these are between cells */
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  font-size: 14px;
+}
+
+/* Position for Right Constraint */
+.constraint-right {
+  right: -12px;
+  /* Half of gap (4px) + Half of marker width (10px)? No.
+                   Gap is 4px. Cell is 60px. 
+                   We want it centered in the 4px gap.
+                   right: - (gap/2 + marker_width/2) 
+                   gap=4, marker=20 -> right: -12px is correct logic relative to cell edge.
+                */
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Position for Bottom Constraint */
+/* Toolbar Styles */
+.toolbar {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.tool-btn {
+  background: #fff;
+  color: #333;
+  border: 2px solid #333;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: all 0.1s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 2px 2px 0 #333;
+}
+
+.tool-btn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 #333;
+}
+
+.tool-btn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 #333;
+}
+
+/* Hint Animation */
+.cell-hint {
+  animation: hintPulse 0.8s infinite;
+  z-index: 10;
+  box-shadow: 0 0 15px var(--color-sun);
+}
+
+@keyframes hintPulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 5px var(--color-sun);
+  }
+
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px var(--color-sun);
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 5px var(--color-sun);
+  }
+}
+
+/* Rules Modal Specifics */
+.rules-content {
+  text-align: left;
+  max-width: 500px;
+}
+
+.rules-list {
+  padding-left: 1.5rem;
+  margin: 1.5rem 0;
+  line-height: 1.6;
+}
+
+.rules-list li {
+  margin-bottom: 0.8rem;
+}
