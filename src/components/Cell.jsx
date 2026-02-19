@@ -1,7 +1,7 @@
 import React from 'react';
 import { CELL_STATES } from '../utils/constants';
 
-const Cell = ({ value, onClick, row, col, isInvalid, isLocked, isHint }) => {
+const Cell = ({ value, onClick, row, col, isInvalid, isLocked, isHint, isError }) => {
     let content = null;
 
     // Base styling
@@ -11,11 +11,12 @@ const Cell = ({ value, onClick, row, col, isInvalid, isLocked, isHint }) => {
     // Background handling
     if (isLocked) {
         baseClasses += " bg-locked"; // #F1EBE0
+    } else if (isError) {
+        // ERROR PATTERN
+        baseClasses += " bg-error-pattern";
     } else {
         baseClasses += " bg-background hover:bg-gray-50"; // #FCFBF8
     }
-
-
 
     if (isHint) {
         if (isHint.type === 'error') {

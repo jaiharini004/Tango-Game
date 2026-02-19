@@ -2,13 +2,14 @@ import React from 'react';
 import Cell from './Cell';
 import ConstraintMarker from './ConstraintMarker';
 
-const Grid = ({ grid, onCellClick, constraints = [], violations = [], lockedCells = new Set(), hint }) => {
+const Grid = ({ grid, onCellClick, constraints = [], violations = [], lockedCells = new Set(), hint, checkCellError }) => {
   // Helper to check for constraints at a specific cell
   const getConstraint = (row, col, type) => {
     return constraints.find(c => c.row === row && c.col === col && c.type === type);
   };
 
   const isCellInvalid = (row, col) => {
+    // Adjacency/Balance violations (the "soft" violations that block winning)
     return violations.includes(`${row}-${col}`);
   };
 
@@ -27,6 +28,9 @@ const Grid = ({ grid, onCellClick, constraints = [], violations = [], lockedCell
 
             const isHinted = hint && hint.row === rowIndex && hint.col === colIndex;
 
+            // Check for immediate error (Red Stripe)
+            const isError = checkCellError ? checkCellError(rowIndex, colIndex) : false;
+
             return (
               <div key={`${rowIndex}-${colIndex}`} className="relative">
                 <Cell
@@ -37,6 +41,7 @@ const Grid = ({ grid, onCellClick, constraints = [], violations = [], lockedCell
                   isInvalid={isCellInvalid(rowIndex, colIndex)}
                   isLocked={isCellLocked(rowIndex, colIndex)}
                   isHint={isHinted}
+                  isError={isError}
                 />
                 {/* Pass relation if available in data, mostly undefined now so defaults to OPPOSITE */}
                 {rightConstraint && <ConstraintMarker type="RIGHT" relation={rightConstraint.relation} />}
