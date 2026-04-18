@@ -1,0 +1,89 @@
+========================================
+         PLAY STORE LISTING
+========================================
+
+📌 APP NAME:
+Tango – Sun & Moon Puzzle
+
+📌 SHORT DESCRIPTION (80 characters max):
+A relaxing logic puzzle — fill the grid with Suns ☀️ and Moons 🌙. Try it now!
+
+📌 FULL DESCRIPTION:
+
+🧩 Tango – Sun & Moon Puzzle
+
+Love brain teasers? Tango is a simple yet addictive logic puzzle game that anyone can pick up in seconds — but mastering it takes real skill!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🎯 HOW TO PLAY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Fill a 6×6 grid using two symbols:
+  ☀️ Sun (Yellow)   🌙 Moon (Blue)
+
+Just follow three easy rules:
+
+1️⃣  NO THREE IN A ROW
+    You can place two Suns or two Moons next to each other — but never three!
+    Example: ☀️☀️🌙 ✅  |  ☀️☀️☀️ ❌
+
+2️⃣  KEEP IT BALANCED
+    Every row and every column must have exactly 3 Suns and 3 Moons.
+    No more, no less!
+
+3️⃣  FOLLOW THE CLUES
+    Some cells are connected by an "×" marker.
+    This means those two cells MUST have opposite symbols.
+    If one is a Sun, the other must be a Moon!
+
+That's it — no math, no words, just pure logic. 🧠
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✨ FEATURES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ Clean, beautiful design — easy on the eyes
+✅ Real-time error highlights — know instantly when a move breaks a rule
+✅ Undo button — go back and try a different approach
+✅ Hint system — stuck? Get a little nudge in the right direction
+✅ Built-in timer — challenge yourself to solve it faster
+✅ Progress tracking — see how close you are with row & column indicators
+✅ Rules screen — quick access to "How to Play" anytime
+✅ No ads interrupting your gameplay
+✅ Works offline — play anywhere, anytime
+✅ Lightweight — fast to download, smooth to play
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━
+👥 WHO IS THIS FOR?
+━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔹 Puzzle lovers who enjoy Sudoku, Binairo, or 0h h1
+🔹 Students looking for a fun brain workout
+🔹 Anyone who wants a calm, satisfying game to unwind
+🔹 All ages — kids, teens, and adults
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📲 DOWNLOAD NOW
+━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Give your brain a daily workout with Tango.
+It's free, it's fun, and it's waiting for you.
+
+🌟 Download Tango – Sun & Moon Puzzle today!
+
+========================================
+         ADDITIONAL STORE INFO
+========================================
+
+📌 CATEGORY: Puzzle / Brain Games / Board
+
+📌 TAGS/KEYWORDS:
+logic puzzle, brain game, sun and moon, binary puzzle, binairo, 
+grid puzzle, mind game, strategy, sudoku alternative, no ads, 
+offline puzzle, casual game, brain training, relaxing game
+
+📌 CONTENT RATING: Everyone
+
+📌 CONTACT EMAIL: [Your email here]
+
+📌 PRIVACY POLICY URL: [Your privacy policy URL here]
