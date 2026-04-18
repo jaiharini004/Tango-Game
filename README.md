@@ -134,5 +134,5 @@ src/
 ```
 
 ---
-
-*Verified by Antigravity - Senior Game Systems Architect*
+## Project By
+[JAI HARINI K S](https://github.com/jaiharini004)
